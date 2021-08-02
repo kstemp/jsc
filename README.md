@@ -108,8 +108,8 @@ using CSV, Tables;
 
 const [sea, air, rail] = CSV::read["sea.csv", "air.csv", "rail.csv"]
 var countries = {} 
-[sea, air, rail].rows.map(row => countries[row].total += row.teu)
+[sea, air, rail].rows => row => countries[row].total += row.teu
 
-const table = Tables::simple("Countries", countries.keys, "TEU Total", countries[].total)
+Tables::simple("Countries", countries.keys, "TEU Total", countries[].total)
 
 ~~~~
